@@ -48,7 +48,7 @@ const ProjectsSection = () => {
                     <span className="tech-tag">C++</span>
                     <span className="tech-tag">MOOS-IvP</span>
                     <span className="tech-tag">AI/ML</span>
-                    <span className="tech-tag">Robotics</span>
+                    <span className="tech-tag">ROBOTICS</span>
                   </div>
                   <div className="flex space-x-4">
                     <a 
@@ -64,15 +64,10 @@ const ProjectsSection = () => {
                     </a>
                   </div>
                 </div>
-                <div className="space-y-4">
+                <div>
                   <img 
                     src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" 
                     alt="InnoNautics marine automation" 
-                    className="w-full rounded-xl shadow-lg" 
-                  />
-                  <img 
-                    src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=200" 
-                    alt="Marine engineering development" 
                     className="w-full rounded-xl shadow-lg" 
                   />
                 </div>
@@ -99,9 +94,9 @@ const ProjectsSection = () => {
               <h4 className="text-xl font-bold text-electric mb-2">TacOR</h4>
               <p className="text-slate-400 text-sm mb-4">Tactile software for visually impaired navigation using LiDAR and computer vision</p>
               <div className="flex flex-wrap gap-1 mb-4">
-                <span className="text-xs bg-electric/10 text-electric px-2 py-1 rounded">Python</span>
-                <span className="text-xs bg-electric/10 text-electric px-2 py-1 rounded">LiDAR</span>
-                <span className="text-xs bg-electric/10 text-electric px-2 py-1 rounded">OpenCV</span>
+                <span className="text-xs bg-electric/10 text-electric px-2 py-1 rounded">PYTHON</span>
+                <span className="text-xs bg-electric/10 text-electric px-2 py-1 rounded">LIDAR</span>
+                <span className="text-xs bg-electric/10 text-electric px-2 py-1 rounded">OPENCV</span>
               </div>
             </div>
           </div>
@@ -122,9 +117,9 @@ const ProjectsSection = () => {
               <h4 className="text-xl font-bold text-electric mb-2">GENAI NPC Scheduler</h4>
               <p className="text-slate-400 text-sm mb-4">AI-powered NPC behavior system for intelligent game character interactions</p>
               <div className="flex flex-wrap gap-1 mb-4">
-                <span className="text-xs bg-neon/10 text-neon px-2 py-1 rounded">Python</span>
+                <span className="text-xs bg-neon/10 text-neon px-2 py-1 rounded">PYTHON</span>
                 <span className="text-xs bg-neon/10 text-neon px-2 py-1 rounded">AI/ML</span>
-                <span className="text-xs bg-neon/10 text-neon px-2 py-1 rounded">Gaming</span>
+                <span className="text-xs bg-neon/10 text-neon px-2 py-1 rounded">GAMING</span>
               </div>
             </div>
           </div>
@@ -147,7 +142,7 @@ const ProjectsSection = () => {
               <div className="flex flex-wrap gap-1 mb-4">
                 <span className="text-xs bg-pink/10 text-pink px-2 py-1 rounded">C++</span>
                 <span className="text-xs bg-pink/10 text-pink px-2 py-1 rounded">CUDA</span>
-                <span className="text-xs bg-pink/10 text-pink px-2 py-1 rounded">Neural</span>
+                <span className="text-xs bg-pink/10 text-pink px-2 py-1 rounded">NEURAL</span>
               </div>
             </div>
           </div>
@@ -169,7 +164,7 @@ const ProjectsSection = () => {
               <h4 className="text-xl font-bold text-electric mb-2">InSight</h4>
               <p className="text-slate-400 text-sm mb-4">Computer vision assistive technology for enhanced spatial awareness</p>
               <div className="flex flex-wrap gap-1 mb-4">
-                <span className="text-xs bg-electric/10 text-electric px-2 py-1 rounded">Python</span>
+                <span className="text-xs bg-electric/10 text-electric px-2 py-1 rounded">PYTHON</span>
                 <span className="text-xs bg-electric/10 text-electric px-2 py-1 rounded">CV</span>
                 <span className="text-xs bg-electric/10 text-electric px-2 py-1 rounded">AI</span>
               </div>

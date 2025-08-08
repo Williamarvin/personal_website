@@ -9,16 +9,16 @@ const ExperienceSection = () => {
       position: "Software Engineer",
       duration: "Aug 2025 - Present",
       location: "Hong Kong",
-      description: "Full-time software engineer developing enterprise solutions and digital transformation initiatives for construction and engineering operations.",
-      tech: ["Full-Stack", "Enterprise", "Digital Transformation"]
+      description: "Full-time software engineer",
+      tech: []
     },
     {
       company: "Efinix",
-      position: "Software Engineer Intern",
+      position: "Software Engineer Intern & Part-time",
       duration: "Jun 2024 - Aug 2024",
       location: "Hong Kong",
       description: "Designed and implemented data parsing pipelines for FPGA configuration data and software tools, improving processing efficiency by 40% and enhancing development workflows.",
-      tech: ["C++", "Python", "FPGA", "Software Tools"]
+      tech: ["C++", "PYTHON", "FPGA", "SOFTWARE TOOLS"]
     },
     {
       company: "Alpha AI Technology",
@@ -26,15 +26,7 @@ const ExperienceSection = () => {
       duration: "Mar 2024 - May 2024", 
       location: "Hong Kong",
       description: "Developed machine learning models for predictive analytics, achieving 92% accuracy in classification tasks.",
-      tech: ["Python", "TensorFlow", "ML"]
-    },
-    {
-      company: "HKUST (UROP)",
-      position: "Research Assistant",
-      duration: "Sep 2023 - Feb 2024",
-      location: "Hong Kong",
-      description: "Conducted research on autonomous systems and neural network optimization for marine applications.",
-      tech: ["MOOS-IvP", "C++", "AI"]
+      tech: ["PYTHON", "TENSORFLOW", "ML"]
     }
   ];
 
@@ -58,11 +50,13 @@ const ExperienceSection = () => {
                     <h3 className="text-2xl font-bold text-electric mb-2">{exp.company}</h3>
                     <p className="font-semibold mb-2 text-neon">{exp.position}</p>
                     <p className="text-slate-400 text-sm mb-4">{exp.duration}<br/>{exp.location}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {exp.tech.map((tech) => (
-                        <span key={tech} className="tech-tag">{tech}</span>
-                      ))}
-                    </div>
+                    {exp.tech.length > 0 && (
+                      <div className="flex flex-wrap gap-2">
+                        {exp.tech.map((tech) => (
+                          <span key={tech} className="tech-tag">{tech}</span>
+                        ))}
+                      </div>
+                    )}
                   </div>
                   <div className="md:col-span-2 space-y-4 text-slate-300">
                     <p>{exp.description}</p>
