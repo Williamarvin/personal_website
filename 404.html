@@ -1,0 +1,34 @@
+<!-- client/public/404.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting…</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <!-- Quick fallback redirect to the SPA base -->
+    <meta http-equiv="refresh" content="0; url=/personal_website/" />
+  </head>
+  <body>
+    <noscript>
+      <p>This site requires JavaScript. Redirecting…</p>
+      <p><a href="/personal_website/">Go to the home page</a></p>
+    </noscript>
+    <script>
+      // Try to preserve the path on refresh by redirecting under the base.
+      (function () {
+        var base = "/personal_website";
+        var l = window.location;
+        var path = l.pathname.startsWith(base)
+          ? l.pathname.slice(base.length)
+          : l.pathname;
+        var target =
+          base.replace(/\/$/, "") +
+          "/" +
+          path.replace(/^\//, "") +
+          l.search +
+          l.hash;
+        l.replace(target);
+      })();
+    </script>
+  </body>
+</html>
