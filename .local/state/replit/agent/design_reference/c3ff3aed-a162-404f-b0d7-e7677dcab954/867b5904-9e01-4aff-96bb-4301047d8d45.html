@@ -1,0 +1,715 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>William Arvin Fisilo - Software Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'space': '#0A0B1E',
+                        'electric': '#8B5CF6',
+                        'neon': '#06B6D4',
+                        'pink': '#EC4899'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                        'handwriting': ['Kalam', 'cursive']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite alternate',
+                        'fadeInUp': 'fadeInUp 0.8s ease-out',
+                    }
+                }
+            }
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.3); }
+            100% { box-shadow: 0 0 30px rgba(139, 92, 246, 0.7); }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .browser-window {
+            background: linear-gradient(135deg, #1E293B 0%, #334155 100%);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .browser-header {
+            background: #1E293B;
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .browser-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .dot-red { background: #EF4444; }
+        .dot-yellow { background: #F59E0B; }
+        .dot-green { background: #10B981; }
+        
+        .floating-shape {
+            position: absolute;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .nav-dot {
+            transition: all 0.3s ease;
+        }
+        .nav-dot.active {
+            background: linear-gradient(135deg, #8B5CF6, #06B6D4);
+            transform: scale(1.2);
+        }
+        
+        .project-card:hover .browser-window {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+        }
+        
+        .tech-tag {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            color: #8B5CF6;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+
+<body class="bg-space text-slate-100 font-inter overflow-x-hidden">
+    <!-- Floating Geometric Shapes -->
+    <div class="floating-shape top-20 left-10 w-32 h-32 border-2 border-electric/20 transform rotate-45 animate-float"></div>
+    <div class="floating-shape top-1/3 right-16 w-24 h-24 bg-gradient-to-r from-electric/10 to-neon/10 rounded-full animate-float" style="animation-delay: 2s;"></div>
+    <div class="floating-shape bottom-1/4 left-1/4 w-16 h-16 border-2 border-neon/20 transform rotate-12 animate-float" style="animation-delay: 4s;"></div>
+    <div class="floating-shape top-1/2 right-1/3 w-20 h-20 bg-gradient-to-br from-pink/10 to-electric/10 transform rotate-45 animate-float" style="animation-delay: 3s;"></div>
+
+    <!-- Fixed Navigation -->
+    <nav class="fixed top-8 right-8 z-50 flex flex-col space-y-4">
+        <a href="#home" class="nav-dot w-3 h-3 rounded-full bg-slate-600 hover:bg-electric transition-all duration-300" data-section="home"></a>
+        <a href="#about" class="nav-dot w-3 h-3 rounded-full bg-slate-600 hover:bg-electric transition-all duration-300" data-section="about"></a>
+        <a href="#experience" class="nav-dot w-3 h-3 rounded-full bg-slate-600 hover:bg-electric transition-all duration-300" data-section="experience"></a>
+        <a href="#portfolio" class="nav-dot w-3 h-3 rounded-full bg-slate-600 hover:bg-electric transition-all duration-300" data-section="portfolio"></a>
+    </nav>
+
+    <!-- Top Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-40 bg-space/80 backdrop-blur-md border-b border-electric/20">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold gradient-text">WF</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="hover:text-electric transition-colors">about</a>
+                <a href="#experience" class="hover:text-electric transition-colors">experience</a>
+                <a href="#portfolio" class="hover:text-electric transition-colors">portfolio</a>
+                <a href="mailto:wafisilo@connect.ust.hk" class="hover:text-neon transition-colors">contact</a>
+            </div>
+            <div class="flex space-x-4 text-lg">
+                <a href="https://github.com/Williamarvin" target="_blank" class="hover:text-electric transition-colors">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/WilliamArvinFisilo" target="_blank" class="hover:text-electric transition-colors">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:wafisilo@connect.ust.hk" class="hover:text-neon transition-colors">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <!-- @COMPONENT: HeroSection [full viewport height with animated elements] -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative pt-20">
+        <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
+            <!-- Browser Window Display -->
+            <div class="browser-window max-w-4xl mx-auto mb-12 animate-pulse-glow">
+                <div class="browser-header">
+                    <div class="browser-dot dot-red"></div>
+                    <div class="browser-dot dot-yellow"></div>
+                    <div class="browser-dot dot-green"></div>
+                </div>
+                <div class="p-12 text-center">
+                    <h1 class="text-6xl md:text-8xl font-bold mb-4">
+                        <span class="gradient-text">WILLIAM</span>
+                        <span class="text-slate-100"> ARVIN</span>
+                    </h1>
+                    <div class="font-handwriting text-electric text-2xl md:text-3xl mb-6 transform -rotate-2">
+                        designs stuff
+                    </div>
+                    <p class="text-neon text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+                        software engineer + artificial intelligence
+                    </p>
+                    
+                    <!-- Floating elements around the main content -->
+                    <!-- @FUNCTIONALITY: This drawing tool should implement free-hand drawing using canvas API -->
+                    <div class="absolute -left-16 top-1/4 hidden lg:block">
+                        <!-- A sleek robotic arm or mechanical component representing engineering -->
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200" alt="Mechanical engineering component" class="w-32 h-32 rounded-xl opacity-20 animate-float" />
+                    </div>
+                    <div class="absolute -right-16 top-1/3 hidden lg:block">
+                        <!-- A modern autonomous marine vessel or drone -->
+                        <img src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200" alt="Autonomous marine vehicle" class="w-36 h-36 rounded-xl opacity-20 animate-float" style="animation-delay: 2s;" />
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="#portfolio" class="inline-flex items-center text-electric hover:text-neon transition-colors text-lg">
+                    <span class="mr-2">projects</span>
+                    <i class="fas fa-arrow-down animate-bounce"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: HeroSection -->
+
+    <!-- About Section -->
+    <!-- @COMPONENT: AboutSection [personal information and photo] -->
+    <section id="about" class="py-24 relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <!-- Wavy separator -->
+            <div class="w-full h-px bg-gradient-to-r from-transparent via-electric to-transparent mb-20"></div>
+            
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-8 gradient-text">
+                        Hey there!
+                    </h2>
+                    
+                    <div class="space-y-6 text-slate-300 leading-relaxed">
+                        <p data-bind="user.bio">
+                            My name is William Arvin Fisilo, and I specialize in software engineering with a focus on artificial intelligence and autonomous systems. Currently pursuing my Bachelor's in Integrative Systems and Design at HKUST with an extended major in AI.
+                        </p>
+                        
+                        <p>
+                            As a versatile engineer, my experience spans from developing scalable marine automation systems using C++ and MOOS-IvP, to building full-stack applications with Node.js, Python, and React. I have a passion for creating innovative solutions that push the boundaries of technology.
+                        </p>
+                        
+                        <p>
+                            I'm the founder of <span class="text-electric font-semibold">InnoNautics</span>, where we develop autonomous marine transport systems. I'm also deeply involved in assistive technologies for the visually impaired and have won multiple competitions including the InnoX competition.
+                        </p>
+                        
+                        <p class="italic text-electric font-handwriting text-xl transform -rotate-1">
+                            My mission as a software engineer is to combine creative mechanics, aesthetics, and innovation - all in the name of making genuinely compelling experiences that push technological boundaries.
+                        </p>
+                    </div>
+
+                    <!-- Technical Skills -->
+                    <div class="mt-12">
+                        <h3 class="text-xl font-semibold mb-4 text-neon">Technical Skills</h3>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">C/C++</span>
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">OpenCV</span>
+                            <span class="tech-tag">MOOS-IvP</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Linux</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <!-- Profile photo with decorative frame -->
+                    <div class="relative max-w-sm mx-auto">
+                        <div class="absolute inset-0 bg-gradient-to-br from-electric to-neon rounded-2xl blur-xl opacity-20"></div>
+                        <div class="relative bg-gradient-to-br from-electric/20 to-neon/20 p-1 rounded-2xl">
+                            <!-- William's professional headshot -->
+                            <img src="data:image/jpeg;base64,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" 
+                                   alt="William Arvin Fisilo professional photo" 
+                                   class="w-full rounded-xl shadow-2xl" />
+                        </div>
+                        <div class="absolute -bottom-4 -right-4 w-16 h-16 bg-gradient-to-br from-electric to-neon rounded-full opacity-20 animate-pulse"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: AboutSection -->
+
+    <!-- Experience Section -->
+    <!-- @COMPONENT: ExperienceSection [work history with company details] -->
+    <section id="experience" class="py-24 relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <!-- Wavy separator -->
+            <div class="w-full h-px bg-gradient-to-r from-transparent via-neon to-transparent mb-20"></div>
+            
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold gradient-text mb-4">Experience</h2>
+                <p class="text-slate-400 text-lg max-w-2xl mx-auto">Building innovative solutions across multiple domains</p>
+            </div>
+
+            <div class="space-y-12">
+                <!-- Efinix Experience -->
+                <!-- @STATE: isExpanded:boolean = false -->
+                <div class="relative">
+                    <div class="browser-window p-8 transition-all duration-300 hover:scale-[1.02]">
+                        <div class="grid md:grid-cols-3 gap-8">
+                            <div class="md:col-span-1">
+                                <h3 class="text-2xl font-bold text-electric mb-2">Efinix</h3>
+                                <p class="text-neon font-semibold mb-2">Software Engineer</p>
+                                <p class="text-slate-400 text-sm mb-4">Feb 2025 - April 2025 (Part-Time)<br/>June 2024 - Aug 2024 (Internship)</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tech-tag">Flutter</span>
+                                    <span class="tech-tag">Node.js</span>
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">ZMQ</span>
+                                </div>
+                            </div>
+                            <div class="md:col-span-2 space-y-4 text-slate-300">
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-2 h-2 bg-electric rounded-full mt-2 flex-shrink-0"></div>
+                                    <p>Currently developing a Flutter app using MVC architecture with CI/CD pipeline implementation</p>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-2 h-2 bg-neon rounded-full mt-2 flex-shrink-0"></div>
+                                    <p>Revamped the in-house coding editor (Primus) through extensive Node.js and RestAPI testing, achieving <span class="text-electric font-semibold">50% boost in inter-process communication efficiency</span></p>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-2 h-2 bg-pink rounded-full mt-2 flex-shrink-0"></div>
+                                    <p>Engineered Python-based communication framework with ZMQ, PyEE, and Threads, reducing backend-frontend latency from <span class="text-neon font-semibold">0.2s to 0.05s</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alpha AI Technology Experience -->
+                <div class="relative">
+                    <div class="browser-window p-8 transition-all duration-300 hover:scale-[1.02]">
+                        <div class="grid md:grid-cols-3 gap-8">
+                            <div class="md:col-span-1">
+                                <h3 class="text-2xl font-bold text-electric mb-2">Alpha AI Technology</h3>
+                                <p class="text-neon font-semibold mb-2">Software Engineer</p>
+                                <p class="text-slate-400 text-sm mb-4">June 2023 - Aug 2023</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tech-tag">Node.js</span>
+                                    <span class="tech-tag">PostgreSQL</span>
+                                    <span class="tech-tag">Java</span>
+                                    <span class="tech-tag">AWS</span>
+                                </div>
+                            </div>
+                            <div class="md:col-span-2 space-y-4 text-slate-300">
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-2 h-2 bg-electric rounded-full mt-2 flex-shrink-0"></div>
+                                    <p>Designed and built ERP system backend using Node.js and PostgreSQL, reducing development time by <span class="text-electric font-semibold">over 75%</span> for SaaS platform serving <span class="text-neon font-semibold">20+ clients</span></p>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-2 h-2 bg-neon rounded-full mt-2 flex-shrink-0"></div>
+                                    <p>Spearheaded Java-based object detection app for dash cameras using AWS compute, EMR with Apache Hadoop, and S3 for real-time video uploads serving <span class="text-pink font-semibold">30+ users</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UROP Experience -->
+                <div class="relative">
+                    <div class="browser-window p-8 transition-all duration-300 hover:scale-[1.02]">
+                        <div class="grid md:grid-cols-3 gap-8">
+                            <div class="md:col-span-1">
+                                <h3 class="text-2xl font-bold text-electric mb-2">HKUST UROP</h3>
+                                <p class="text-neon font-semibold mb-2">Software Engineer</p>
+                                <p class="text-slate-400 text-sm mb-4">Feb 2023 - May 2023</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tech-tag">LiDAR</span>
+                                    <span class="tech-tag">OpenCV</span>
+                                    <span class="tech-tag">C++</span>
+                                    <span class="tech-tag">3D Reconstruction</span>
+                                </div>
+                            </div>
+                            <div class="md:col-span-2 space-y-4 text-slate-300">
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-2 h-2 bg-electric rounded-full mt-2 flex-shrink-0"></div>
+                                    <p>Designed SEEKR software for 3D reconstruction using LiDAR technology, OpenCV, and C++ to assist <span class="text-electric font-semibold">20+ HK Blind Union members</span></p>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-2 h-2 bg-neon rounded-full mt-2 flex-shrink-0"></div>
+                                    <p>Collaborated with Professor BRAUD, Tristan Camille and SEEKR CEO Turzo Bose on assistive technology research</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ExperienceSection -->
+
+    <!-- Portfolio Section -->
+    <!-- @COMPONENT: PortfolioSection [project showcase grid] -->
+    <section id="portfolio" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Wavy separator -->
+            <div class="w-full h-px bg-gradient-to-r from-transparent via-electric to-transparent mb-20"></div>
+            
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold gradient-text mb-4">Projects</h2>
+                <p class="text-slate-400 text-lg max-w-2xl mx-auto">Innovation through code - from autonomous systems to AI applications</p>
+            </div>
+
+            <!-- Featured Project: InnoNautics -->
+            <div class="mb-16">
+                <div class="browser-window project-card transition-all duration-500 hover:shadow-2xl">
+                    <div class="browser-header">
+                        <div class="browser-dot dot-red"></div>
+                        <div class="browser-dot dot-yellow"></div>
+                        <div class="browser-dot dot-green"></div>
+                        <span class="text-slate-400 text-sm ml-4">innonautics.com</span>
+                    </div>
+                    <div class="p-8">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <h3 class="text-3xl font-bold gradient-text mb-4">InnoNautics</h3>
+                                <p class="text-neon text-lg mb-4">Marine Transport Automation • <span class="text-slate-400">Founder & Lead Engineer</span></p>
+                                <p class="text-slate-300 mb-6 leading-relaxed">
+                                    Revolutionary autonomous marine transportation system designed to upgrade water sports mobility. Features advanced pathfinding, manual override capabilities, and real-time GPS/IMU navigation integration.
+                                </p>
+                                <div class="space-y-4 mb-8">
+                                    <div class="flex items-center space-x-3">
+                                        <i class="fas fa-trophy text-electric"></i>
+                                        <span class="text-slate-300">HKSTP Ideation Program Approval</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <i class="fas fa-users text-neon"></i>
+                                        <span class="text-slate-300">Led 4-person development team</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <i class="fas fa-cogs text-pink"></i>
+                                        <span class="text-slate-300">10 prototypes deployed for manufacturing</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="tech-tag">C++</span>
+                                    <span class="tech-tag">MOOS-IvP</span>
+                                    <span class="tech-tag">Docker</span>
+                                    <span class="tech-tag">Raspberry Pi</span>
+                                    <span class="tech-tag">MAVLink</span>
+                                    <span class="tech-tag">ROS</span>
+                                </div>
+                                <div class="flex space-x-4">
+                                    <a href="https://innonautics.com" target="_blank" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-electric to-neon rounded-lg text-white font-semibold transition-all hover:shadow-lg hover:shadow-electric/25">
+                                        <i class="fas fa-external-link-alt mr-2"></i>
+                                        Visit Site
+                                    </a>
+                                    <a href="https://github.com/Williamarvin/innonautics_moos_dev" target="_blank" class="inline-flex items-center px-6 py-3 border border-electric text-electric rounded-lg font-semibold transition-all hover:bg-electric hover:text-white">
+                                        <i class="fab fa-github mr-2"></i>
+                                        View Code
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <!-- A modern autonomous marine vessel during water testing -->
+                                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=300" alt="Autonomous marine vehicle on water" class="w-full rounded-xl shadow-lg" />
+                                <!-- Marine engineering workspace with technical equipment -->
+                                <img src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=200" alt="Marine engineering development workspace" class="w-full rounded-xl shadow-lg" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Grid -->
+            <!-- @MAP: projects.map(project => ( -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- TacOR Project -->
+                <div class="browser-window project-card transition-all duration-500">
+                    <div class="browser-header">
+                        <div class="browser-dot dot-red"></div>
+                        <div class="browser-dot dot-yellow"></div>
+                        <div class="browser-dot dot-green"></div>
+                    </div>
+                    <div class="p-6">
+                        <!-- Tactile elevation mapping visualization -->
+                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200" alt="Tactile elevation mapping technology" class="w-full h-32 object-cover rounded-lg mb-4" />
+                        <h4 class="text-xl font-bold text-electric mb-2">TacOR</h4>
+                        <p class="text-slate-400 text-sm mb-4">Software for tactile elevation and integration with hardware</p>
+                        <div class="flex flex-wrap gap-1 mb-4">
+                            <span class="text-xs bg-electric/10 text-electric px-2 py-1 rounded">Python</span>
+                            <span class="text-xs bg-neon/10 text-neon px-2 py-1 rounded">Hardware Integration</span>
+                        </div>
+                        <a href="https://github.com/Williamarvin/TacOR" target="_blank" class="text-electric hover:text-neon transition-colors text-sm">
+                            <i class="fab fa-github mr-1"></i> View Repository
+                        </a>
+                    </div>
+                </div>
+
+                <!-- GENAI NPC Scheduler -->
+                <div class="browser-window project-card transition-all duration-500">
+                    <div class="browser-header">
+                        <div class="browser-dot dot-red"></div>
+                        <div class="browser-dot dot-yellow"></div>
+                        <div class="browser-dot dot-green"></div>
+                    </div>
+                    <div class="p-6">
+                        <!-- AI-powered gaming interface or NPCs -->
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200" alt="AI gaming technology interface" class="w-full h-32 object-cover rounded-lg mb-4" />
+                        <h4 class="text-xl font-bold text-electric mb-2">GENAI NPC Scheduler</h4>
+                        <p class="text-slate-400 text-sm mb-4">Automating NPC schedule to make gaming more fun and interactive</p>
+                        <div class="flex flex-wrap gap-1 mb-4">
+                            <span class="text-xs bg-electric/10 text-electric px-2 py-1 rounded">C++</span>
+                            <span class="text-xs bg-pink/10 text-pink px-2 py-1 rounded">AI</span>
+                            <span class="text-xs bg-neon/10 text-neon px-2 py-1 rounded">Game Dev</span>
+                        </div>
+                        <a href="https://github.com/Williamarvin/GENAI_NPC_scheduler" target="_blank" class="text-electric hover:text-neon transition-colors text-sm">
+                            <i class="fab fa-github mr-1"></i> View Repository
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Excel with LinkedList -->
+                <div class="browser-window project-card transition-all duration-500">
+                    <div class="browser-header">
+                        <div class="browser-dot dot-red"></div>
+                        <div class="browser-dot dot-yellow"></div>
+                        <div class="browser-dot dot-green"></div>
+                    </div>
+                    <div class="p-6">
+                        <!-- Modern spreadsheet or data structure visualization -->
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200" alt="Spreadsheet data structure visualization" class="w-full h-32 object-cover rounded-lg mb-4" />
+                        <h4 class="text-xl font-bold text-electric mb-2">Excel with LinkedList</h4>
+                        <p class="text-slate-400 text-sm mb-4">Using linkedlist OOP to replicate the features of an excel sheet</p>
+                        <div class="flex flex-wrap gap-1 mb-4">
+                            <span class="text-xs bg-electric/10 text-electric px-2 py-1 rounded">C++</span>
+                            <span class="text-xs bg-neon/10 text-neon px-2 py-1 rounded">OOP</span>
+                            <span class="text-xs bg-pink/10 text-pink px-2 py-1 rounded">Data Structures</span>
+                        </div>
+                        <a href="https://github.com/Williamarvin/Excel_with_linkedlist" target="_blank" class="text-electric hover:text-neon transition-colors text-sm">
+                            <i class="fab fa-github mr-1"></i> View Repository
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Dungeon with OOP -->
+                <div class="browser-window project-card transition-all duration-500">
+                    <div class="browser-header">
+                        <div class="browser-dot dot-red"></div>
+                        <div class="browser-dot dot-yellow"></div>
+                        <div class="browser-dot dot-green"></div>
+                    </div>
+                    <div class="p-6">
+                        <!-- Fantasy dungeon game environment -->
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200" alt="Fantasy dungeon game environment" class="w-full h-32 object-cover rounded-lg mb-4" />
+                        <h4 class="text-xl font-bold text-electric mb-2">Dungeon with OOP</h4>
+                        <p class="text-slate-400 text-sm mb-4">Single player game with dictionary data structure and operator</p>
+                        <div class="flex flex-wrap gap-1 mb-4">
+                            <span class="text-xs bg-electric/10 text-electric px-2 py-1 rounded">C++</span>
+                            <span class="text-xs bg-neon/10 text-neon px-2 py-1 rounded">Game Dev</span>
+                            <span class="text-xs bg-pink/10 text-pink px-2 py-1 rounded">OOP</span>
+                        </div>
+                        <a href="https://github.com/Williamarvin/Dungeon_with_OOP" target="_blank" class="text-electric hover:text-neon transition-colors text-sm">
+                            <i class="fab fa-github mr-1"></i> View Repository
+                        </a>
+                    </div>
+                </div>
+
+                <!-- HKUST Hall System Enhancement -->
+                <div class="browser-window project-card transition-all duration-500">
+                    <div class="browser-header">
+                        <div class="browser-dot dot-red"></div>
+                        <div class="browser-dot dot-yellow"></div>
+                        <div class="browser-dot dot-green"></div>
+                    </div>
+                    <div class="p-6">
+                        <!-- Modern university campus building -->
+                        <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200" alt="Modern university campus building" class="w-full h-32 object-cover rounded-lg mb-4" />
+                        <h4 class="text-xl font-bold text-electric mb-2">HKUST Hall System</h4>
+                        <p class="text-slate-400 text-sm mb-4">Enhanced hall application system using BST, linkedlist and hashing</p>
+                        <div class="flex flex-wrap gap-1 mb-4">
+                            <span class="text-xs bg-electric/10 text-electric px-2 py-1 rounded">C++</span>
+                            <span class="text-xs bg-neon/10 text-neon px-2 py-1 rounded">Data Structures</span>
+                            <span class="text-xs bg-pink/10 text-pink px-2 py-1 rounded">Systems</span>
+                        </div>
+                        <a href="https://github.com/Williamarvin/HKUST_HALL_SYSTEM_ENHANCEMENT" target="_blank" class="text-electric hover:text-neon transition-colors text-sm">
+                            <i class="fab fa-github mr-1"></i> View Repository
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Instant NGP -->
+                <div class="browser-window project-card transition-all duration-500">
+                    <div class="browser-header">
+                        <div class="browser-dot dot-red"></div>
+                        <div class="browser-dot dot-yellow"></div>
+                        <div class="browser-dot dot-green"></div>
+                    </div>
+                    <div class="p-6">
+                        <!-- 3D neural rendering or NeRF visualization -->
+                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200" alt="3D neural rendering visualization" class="w-full h-32 object-cover rounded-lg mb-4" />
+                        <h4 class="text-xl font-bold text-electric mb-2">Instant NGP</h4>
+                        <p class="text-slate-400 text-sm mb-4">Instant neural graphics primitives: lightning fast NeRF and more</p>
+                        <div class="flex flex-wrap gap-1 mb-4">
+                            <span class="text-xs bg-electric/10 text-electric px-2 py-1 rounded">CUDA</span>
+                            <span class="text-xs bg-neon/10 text-neon px-2 py-1 rounded">Neural Graphics</span>
+                            <span class="text-xs bg-pink/10 text-pink px-2 py-1 rounded">NeRF</span>
+                        </div>
+                        <a href="https://github.com/Williamarvin/instant-ngp-1" target="_blank" class="text-electric hover:text-neon transition-colors text-sm">
+                            <i class="fab fa-github mr-1"></i> View Repository
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- @END_MAP -->
+
+            <!-- Additional Achievements -->
+            <div class="text-center">
+                <h3 class="text-2xl font-bold text-neon mb-8">Recognition & Achievements</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-gradient-to-br from-electric/10 to-neon/10 p-6 rounded-xl border border-electric/20">
+                        <i class="fas fa-trophy text-3xl text-electric mb-4"></i>
+                        <h4 class="text-lg font-semibold text-electric mb-2">InnoX Competition</h4>
+                        <p class="text-slate-300 text-sm">1st place (Best Product) winning 60,000 HKD from Chan Dang Foundation</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-neon/10 to-pink/10 p-6 rounded-xl border border-neon/20">
+                        <i class="fas fa-robot text-3xl text-neon mb-4"></i>
+                        <h4 class="text-lg font-semibold text-neon mb-2">RoboMaster Championship</h4>
+                        <p class="text-slate-300 text-sm">Led hardware/software integration for self-balancing infantry robot</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-pink/10 to-electric/10 p-6 rounded-xl border border-pink/20">
+                        <i class="fas fa-certificate text-3xl text-pink mb-4"></i>
+                        <h4 class="text-lg font-semibold text-pink mb-2">Web Development Bootcamp</h4>
+                        <p class="text-slate-300 text-sm">Built 16+ projects showcasing full-stack expertise</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: PortfolioSection -->
+
+    <!-- Contact/Footer -->
+    <!-- @COMPONENT: ContactSection [social links and contact info] -->
+    <footer class="py-16 relative">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <!-- Animated dolphins/geometric shapes -->
+            <div class="mb-12">
+                <!-- Three stylized marine creatures representing innovation -->
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=100" alt="Marine life representing innovation" class="inline-block w-16 h-8 rounded opacity-20 mx-4 animate-float" />
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=100" alt="Marine life representing innovation" class="inline-block w-16 h-8 rounded opacity-20 mx-4 animate-float" style="animation-delay: 1s;" />
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=100" alt="Marine life representing innovation" class="inline-block w-16 h-8 rounded opacity-20 mx-4 animate-float" style="animation-delay: 2s;" />
+            </div>
+
+            <h3 class="text-3xl font-bold gradient-text mb-8">Let's Build Something Amazing</h3>
+            <p class="text-slate-400 mb-8 max-w-2xl mx-auto">
+                I'm always interested in new opportunities and collaborations. Whether it's about autonomous systems, 
+                AI applications, or innovative software solutions, let's connect!
+            </p>
+
+            <div class="flex justify-center space-x-8 mb-12">
+                <a href="https://github.com/Williamarvin" target="_blank" class="text-slate-400 hover:text-electric transition-colors text-2xl">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/WilliamArvinFisilo" target="_blank" class="text-slate-400 hover:text-electric transition-colors text-2xl">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:wafisilo@connect.ust.hk" class="text-slate-400 hover:text-neon transition-colors text-2xl">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="tel:+85264701754" class="text-slate-400 hover:text-pink transition-colors text-2xl">
+                    <i class="fas fa-phone"></i>
+                </a>
+            </div>
+
+            <div class="text-slate-500 text-sm">
+                <p>© Copyright 2025 by William Arvin Fisilo</p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: ContactSection -->
+
+    <script>
+        // Smooth scrolling navigation
+        (function() {
+            const navDots = document.querySelectorAll('.nav-dot');
+            const sections = document.querySelectorAll('section[id]');
+            
+            // Update active dot based on scroll position
+            function updateActiveSection() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navDots.forEach(dot => {
+                    dot.classList.remove('active');
+                    if (dot.dataset.section === current) {
+                        dot.classList.add('active');
+                    }
+                });
+            }
+            
+            // Smooth scroll to section
+            navDots.forEach(dot => {
+                dot.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = dot.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                });
+            });
+            
+            // Handle all internal links
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            window.addEventListener('scroll', updateActiveSection);
+            updateActiveSection(); // Initial call
+            
+            // TODO: Implement business logic for form submissions, API calls, or state management
+        })();
+    </script>
+</body>
+</html>
