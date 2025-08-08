@@ -3,67 +3,61 @@ import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
 const HeroSection = () => {
   const { ref, isIntersecting } = useIntersectionObserver({ threshold: 0.3 });
 
-  const scrollToPortfolio = () => {
-    const element = document.getElementById('portfolio');
+  const scrollToProjects = () => {
+    const element = document.getElementById('projects');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
   return (
-    <section id="home" ref={ref} className="min-h-screen flex items-center justify-center relative pt-20">
-      {/* Floating Geometric Shapes */}
-      <div className="floating-shape top-20 left-10 w-32 h-32 border-2 border-electric/20 transform rotate-45 animate-float"></div>
-      <div className="floating-shape top-1/3 right-16 w-24 h-24 bg-gradient-to-r from-electric/10 to-neon/10 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
-      <div className="floating-shape bottom-1/4 left-1/4 w-16 h-16 border-2 border-neon/20 transform rotate-12 animate-float" style={{ animationDelay: '4s' }}></div>
-      <div className="floating-shape top-1/2 right-1/3 w-20 h-20 bg-gradient-to-br from-pink/10 to-electric/10 transform rotate-45 animate-float" style={{ animationDelay: '3s' }}></div>
+    <section id="home" ref={ref} className="min-h-screen flex items-center justify-center relative pt-20 bg-space">
+      {/* Floating Geometric Shapes - retro style */}
+      <div className="absolute top-20 left-10 w-24 h-24 border-2 border-electric/30 rotate-45 animate-float"></div>
+      <div className="absolute top-1/3 right-16 w-16 h-16 bg-neon/20 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
+      <div className="absolute bottom-1/4 left-1/4 w-12 h-12 border-2 border-pink/30 rotate-12 animate-float" style={{ animationDelay: '4s' }}></div>
+      <div className="absolute top-1/2 right-1/3 w-20 h-20 bg-electric/10 rotate-45 animate-float" style={{ animationDelay: '3s' }}></div>
 
       <div className={`max-w-6xl mx-auto px-6 text-center relative z-10 transition-all duration-1000 ${isIntersecting ? 'animate-fade-in-up' : 'opacity-0'}`}>
-        {/* Browser Window Display */}
-        <div className="browser-window max-w-4xl mx-auto mb-12 animate-pulse-glow">
+        {/* Main Browser Window - like the template */}
+        <div className="browser-window max-w-5xl mx-auto mb-16">
           <div className="browser-header">
             <div className="browser-dot dot-red"></div>
             <div className="browser-dot dot-yellow"></div>
             <div className="browser-dot dot-green"></div>
           </div>
-          <div className="p-12 text-center">
-            <h1 className="text-6xl md:text-8xl font-bold mb-4">
+          <div className="p-16 text-center relative">
+            <h1 className="text-7xl md:text-9xl font-bold mb-6">
               <span className="gradient-text">WILLIAM</span>
-              <span className="text-slate-100"> ARVIN</span>
+              <div className="font-handwriting text-electric text-3xl md:text-4xl mt-4 transform -rotate-2">
+                builds stuff
+              </div>
             </h1>
-            <div className="font-handwriting text-electric text-2xl md:text-3xl mb-6 transform -rotate-2">
-              builds innovative systems
-            </div>
-            <p className="text-neon text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-              software engineer + artificial intelligence + autonomous systems
+            <p className="text-neon text-xl md:text-2xl mb-8">
+              software engineer + ai + marine automation
             </p>
             
-            {/* Floating elements around the main content */}
-            <div className="absolute -left-16 top-1/4 hidden lg:block">
-              <img 
-                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200" 
-                alt="Mechanical engineering component" 
-                className="w-32 h-32 rounded-xl opacity-20 animate-float" 
-              />
+            {/* Floating retro elements like pineapple equivalents */}
+            <div className="absolute -left-12 top-1/4 hidden lg:block">
+              <div className="w-32 h-32 opacity-30 halftone-effect animate-float">
+                <i className="fas fa-robot text-electric text-4xl"></i>
+              </div>
             </div>
-            <div className="absolute -right-16 top-1/3 hidden lg:block">
-              <img 
-                src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200" 
-                alt="Autonomous marine vehicle" 
-                className="w-36 h-36 rounded-xl opacity-20 animate-float" 
-                style={{ animationDelay: '2s' }} 
-              />
+            <div className="absolute -right-12 top-1/3 hidden lg:block">
+              <div className="w-36 h-36 opacity-30 halftone-effect animate-float" style={{ animationDelay: '2s' }}>
+                <i className="fas fa-ship text-neon text-5xl"></i>
+              </div>
             </div>
           </div>
         </div>
         
         <div className="text-center">
           <button 
-            onClick={scrollToPortfolio}
-            className="inline-flex items-center text-electric hover:text-neon transition-colors text-lg group"
+            onClick={scrollToProjects}
+            className="inline-flex items-center text-electric hover:text-neon transition-colors text-xl group font-mono"
           >
-            <span className="mr-2">projects</span>
-            <i className="fas fa-arrow-down animate-bounce group-hover:translate-y-1 transition-transform"></i>
+            <span className="mr-3">projects</span>
+            <div className="w-6 h-6 border-t-2 border-r-2 border-electric transform rotate-45 group-hover:translate-y-1 transition-transform"></div>
           </button>
         </div>
       </div>
