@@ -5,7 +5,7 @@ const ExperienceSection = () => {
 
   const experiences = [
     {
-      company: "Chun Wo Holding Limited",
+      company: "Chun Wo Development Holdings Limited",
       position: "Software Engineer",
       duration: "Aug 2025 - Present",
       location: "Hong Kong",
@@ -14,19 +14,19 @@ const ExperienceSection = () => {
     },
     {
       company: "Efinix",
-      position: "Software Engineer Intern & Part-time",
-      duration: "Jun 2024 - Aug 2024",
-      location: "Hong Kong",
-      description: "Designed and implemented data parsing pipelines for FPGA configuration data and software tools, improving processing efficiency by 40% and enhancing development workflows.",
-      tech: ["C++", "PYTHON", "FPGA", "SOFTWARE TOOLS"]
+      position: "Software Engineer",
+      duration: "Feb 2025 - April 2025 (Part-Time) • June 2024 - Aug 2024",
+      location: "New Territories, HK",
+      description: "Part-Time Software Engineer (Feb 2025 - April 2025): Developing a Flutter app using MVC architecture, Dart, and implementing UI, backend with a CI/CD pipeline. Software Engineer (June 2024 - Aug 2024): Revamped the codebase for the in-house coding editor (Primus) through extensive testing of Node.js and RestAPI, along with research into the VS Code codebase, achieving a 50% boost in inter-process communication efficiency. Engineered a Python-based communication framework utilizing ZMQ, PyEE, and Threads, decreasing backend-frontend latency from 0.2 seconds to 0.05 seconds, which improved user experience across the coding editor.",
+      tech: ["Flutter", "Dart", "MVC Architecture", "CI/CD", "Node.js", "Python", "ZMQ", "PyEE", "RestAPI"]
     },
     {
       company: "Alpha AI Technology",
-      position: "AI Engineer (Part-time)",
-      duration: "Mar 2024 - May 2024", 
-      location: "Hong Kong",
-      description: "Developed machine learning models for predictive analytics, achieving 92% accuracy in classification tasks.",
-      tech: ["PYTHON", "TENSORFLOW", "ML"]
+      position: "Software Engineer",
+      duration: "June 2023 - Aug 2023", 
+      location: "Hong Kong Island, HK",
+      description: "Designed and built the backend of an ERP system using Node.js and PostgreSQL, creating a web application that reduced development time by over 75% for a SaaS platform template builder serving more than 20 clients. Spearheaded and deployed a Java-based object detection app for dash cameras, leveraging AWS compute units, EMR with Apache Hadoop, and S3 for real-time video uploads every 10 minutes, serving 30+ users.",
+      tech: ["Node.js", "PostgreSQL", "Java", "AWS", "Apache Hadoop", "S3"]
     }
   ];
 
@@ -59,7 +59,41 @@ const ExperienceSection = () => {
                     )}
                   </div>
                   <div className="md:col-span-2 space-y-4 text-slate-300">
-                    <p>{exp.description}</p>
+                    {exp.company === "Efinix" ? (
+                      <>
+                        <div className="flex items-start space-x-3">
+                          <div className="w-2 h-2 bg-electric rounded-full mt-2 flex-shrink-0"></div>
+                          <div>
+                            <p className="font-semibold text-electric mb-2">Part-Time Software Engineer (Feb 2025 - April 2025):</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start space-x-3 ml-5">
+                          <div className="w-2 h-2 bg-electric rounded-full mt-2 flex-shrink-0"></div>
+                          <p>Developing a Flutter app using MVC architecture, Dart, and implementing UI, backend with a CI/CD pipeline.</p>
+                        </div>
+                        <div className="flex items-start space-x-3">
+                          <div className="w-2 h-2 bg-neon rounded-full mt-2 flex-shrink-0"></div>
+                          <div>
+                            <p className="font-semibold text-neon mb-2">Software Engineer (June 2024 - Aug 2024):</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start space-x-3 ml-5">
+                          <div className="w-2 h-2 bg-neon rounded-full mt-2 flex-shrink-0"></div>
+                          <p>Revamped the codebase for the in-house coding editor (Primus) through extensive testing of Node.js and RestAPI, along with research into the VS Code codebase, achieving a 50% boost in inter-process communication efficiency.</p>
+                        </div>
+                        <div className="flex items-start space-x-3 ml-5">
+                          <div className="w-2 h-2 bg-neon rounded-full mt-2 flex-shrink-0"></div>
+                          <p>Engineered a Python-based communication framework utilizing ZMQ, PyEE, and Threads, decreasing backend-frontend latency from 0.2 seconds to 0.05 seconds, which improved user experience across the coding editor.</p>
+                        </div>
+                      </>
+                    ) : (
+                      exp.description.split('. ').map((point, index) => (
+                        <div key={index} className="flex items-start space-x-3">
+                          <div className="w-2 h-2 bg-electric rounded-full mt-2 flex-shrink-0"></div>
+                          <p>{point}{point.endsWith('.') ? '' : '.'}</p>
+                        </div>
+                      ))
+                    )}
                   </div>
                 </div>
               </div>

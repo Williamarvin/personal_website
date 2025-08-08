@@ -40,9 +40,9 @@ const AboutSection = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-electric to-neon rounded-2xl blur-xl opacity-20"></div>
               <div className="relative bg-gradient-to-br from-electric/20 to-neon/20 p-1 rounded-2xl">
                 <img 
-                  src="/attached_assets/IMG_9856_1754622166917.JPG" 
+                  src="/attached_assets/profile_pic.JPG" 
                   alt="William Arvin Fisilo professional photo" 
-                  className="w-full rounded-xl shadow-2xl" 
+                  className="w-full h-48 object-contain rounded-xl shadow-2xl" 
                 />
               </div>
               <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-gradient-to-br from-electric to-neon rounded-full opacity-20 animate-pulse"></div>

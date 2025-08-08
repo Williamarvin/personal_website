@@ -40,6 +40,9 @@ export async function setupVite(app: Express, server: Server) {
     appType: "custom",
   });
 
+  // Serve attached_assets folder as static files in development
+  app.use("/attached_assets", express.static(path.resolve(import.meta.dirname, "..", "attached_assets")));
+
   app.use(vite.middlewares);
   app.use("*", async (req, res, next) => {
     const url = req.originalUrl;
@@ -75,6 +78,9 @@ export function serveStatic(app: Express) {
       `Could not find the build directory: ${distPath}, make sure to build the client first`,
     );
   }
+
+  // Serve attached_assets folder as static files in production
+  app.use("/attached_assets", express.static(path.resolve(import.meta.dirname, "..", "attached_assets")));
 
   app.use(express.static(distPath));
 

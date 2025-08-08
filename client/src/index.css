@@ -129,7 +129,6 @@
     border-radius: 25px;
     font-size: 0.875rem;
     font-weight: 600;
-    text-transform: lowercase;
   }
 
   @keyframes float {

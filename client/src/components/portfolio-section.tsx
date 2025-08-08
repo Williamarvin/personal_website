@@ -48,7 +48,7 @@ const ProjectsSection = () => {
                     <span className="tech-tag">C++</span>
                     <span className="tech-tag">MOOS-IvP</span>
                     <span className="tech-tag">AI/ML</span>
-                    <span className="tech-tag">ROBOTICS</span>
+                    <span className="tech-tag">Robotics</span>
                   </div>
                   <div className="flex space-x-4">
                     <a 
@@ -78,98 +78,47 @@ const ProjectsSection = () => {
 
         {/* Top 4 Other Projects Grid */}
         <div className={`grid md:grid-cols-2 lg:grid-cols-4 gap-8 transition-all duration-1000 delay-500 ${isIntersecting ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          {/* TacOR */}
-          <div className="browser-window project-card transition-all duration-500">
-            <div className="browser-header">
-              <div className="browser-dot dot-red"></div>
-              <div className="browser-dot dot-yellow"></div>
-              <div className="browser-dot dot-green"></div>
-            </div>
-            <div className="p-6">
-              <img 
-                src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200" 
-                alt="TacOR assistive technology" 
-                className="w-full h-32 object-cover rounded-lg mb-4" 
-              />
-              <h4 className="text-xl font-bold text-electric mb-2">TacOR</h4>
-              <p className="text-slate-400 text-sm mb-4">Tactile software for visually impaired navigation using LiDAR and computer vision</p>
-              <div className="flex flex-wrap gap-1 mb-4">
-                <span className="text-xs bg-electric/10 text-electric px-2 py-1 rounded">PYTHON</span>
-                <span className="text-xs bg-electric/10 text-electric px-2 py-1 rounded">LIDAR</span>
-                <span className="text-xs bg-electric/10 text-electric px-2 py-1 rounded">OPENCV</span>
+          {projects.slice(1, 5).map((project) => (
+            <a
+              key={project.id}
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="browser-window project-card transition-all duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer group"
+            >
+              <div className="browser-header">
+                <div className="browser-dot dot-red"></div>
+                <div className="browser-dot dot-yellow"></div>
+                <div className="browser-dot dot-green"></div>
               </div>
-            </div>
-          </div>
-
-          {/* GENAI NPC */}
-          <div className="browser-window project-card transition-all duration-500">
-            <div className="browser-header">
-              <div className="browser-dot dot-red"></div>
-              <div className="browser-dot dot-yellow"></div>
-              <div className="browser-dot dot-green"></div>
-            </div>
-            <div className="p-6">
-              <img 
-                src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200" 
-                alt="GENAI NPC gaming system" 
-                className="w-full h-32 object-cover rounded-lg mb-4" 
-              />
-              <h4 className="text-xl font-bold text-electric mb-2">GENAI NPC Scheduler</h4>
-              <p className="text-slate-400 text-sm mb-4">AI-powered NPC behavior system for intelligent game character interactions</p>
-              <div className="flex flex-wrap gap-1 mb-4">
-                <span className="text-xs bg-neon/10 text-neon px-2 py-1 rounded">PYTHON</span>
-                <span className="text-xs bg-neon/10 text-neon px-2 py-1 rounded">AI/ML</span>
-                <span className="text-xs bg-neon/10 text-neon px-2 py-1 rounded">GAMING</span>
+              <div className="p-6">
+                {project.imageUrl ? (
+                  <img 
+                    src={project.imageUrl} 
+                    alt={`${project.title} project`} 
+                    className="w-full h-32 object-cover rounded-lg mb-4 group-hover:opacity-80 transition-opacity" 
+                  />
+                ) : (
+                  <div className="w-full h-32 bg-gradient-to-br from-electric/30 to-neon/30 rounded-lg mb-4 flex items-center justify-center">
+                    <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                  </div>
+                )}
+                <h4 className="text-xl font-bold text-electric mb-2 group-hover:text-neon transition-colors">{project.title}</h4>
+                <p className="text-slate-400 text-sm mb-4">{project.description}</p>
+                <div className="flex flex-wrap gap-1 mb-4">
+                  {project.technologies.slice(0, 3).map((tech) => (
+                    <span key={tech} className="text-xs bg-electric/10 text-electric px-2 py-1 rounded">{tech}</span>
+                  ))}
+                </div>
+                <div className="flex items-center justify-center mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="text-electric text-sm font-semibold">View on GitHub →</span>
+                </div>
               </div>
-            </div>
-          </div>
-
-          {/* Instant NGP */}
-          <div className="browser-window project-card transition-all duration-500">
-            <div className="browser-header">
-              <div className="browser-dot dot-red"></div>
-              <div className="browser-dot dot-yellow"></div>
-              <div className="browser-dot dot-green"></div>
-            </div>
-            <div className="p-6">
-              <img 
-                src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200" 
-                alt="Instant NGP neural graphics" 
-                className="w-full h-32 object-cover rounded-lg mb-4" 
-              />
-              <h4 className="text-xl font-bold text-electric mb-2">Instant NGP</h4>
-              <p className="text-slate-400 text-sm mb-4">Neural graphics primitives for real-time 3D scene reconstruction</p>
-              <div className="flex flex-wrap gap-1 mb-4">
-                <span className="text-xs bg-pink/10 text-pink px-2 py-1 rounded">C++</span>
-                <span className="text-xs bg-pink/10 text-pink px-2 py-1 rounded">CUDA</span>
-                <span className="text-xs bg-pink/10 text-pink px-2 py-1 rounded">NEURAL</span>
-              </div>
-            </div>
-          </div>
-
-          {/* InSight */}
-          <div className="browser-window project-card transition-all duration-500">
-            <div className="browser-header">
-              <div className="browser-dot dot-red"></div>
-              <div className="browser-dot dot-yellow"></div>
-              <div className="browser-dot dot-green"></div>
-            </div>
-            <div className="p-6">
-              <div className="w-full h-32 bg-gradient-to-br from-electric/30 to-neon/30 rounded-lg mb-4 flex items-center justify-center">
-                <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                </svg>
-              </div>
-              <h4 className="text-xl font-bold text-electric mb-2">InSight</h4>
-              <p className="text-slate-400 text-sm mb-4">Computer vision assistive technology for enhanced spatial awareness</p>
-              <div className="flex flex-wrap gap-1 mb-4">
-                <span className="text-xs bg-electric/10 text-electric px-2 py-1 rounded">PYTHON</span>
-                <span className="text-xs bg-electric/10 text-electric px-2 py-1 rounded">CV</span>
-                <span className="text-xs bg-electric/10 text-electric px-2 py-1 rounded">AI</span>
-              </div>
-            </div>
-          </div>
+            </a>
+          ))}
         </div>
       </div>
     </section>
