@@ -5,12 +5,20 @@ const ExperienceSection = () => {
 
   const experiences = [
     {
+      company: "Chun Wo Holding Limited",
+      position: "Software Engineer",
+      duration: "Aug 2025 - Present",
+      location: "Hong Kong",
+      description: "Full-time software engineer developing enterprise solutions and digital transformation initiatives for construction and engineering operations.",
+      tech: ["Full-Stack", "Enterprise", "Digital Transformation"]
+    },
+    {
       company: "Efinix",
       position: "Software Engineer Intern",
       duration: "Jun 2024 - Aug 2024",
       location: "Hong Kong",
-      description: "Designed and implemented a data parsing pipeline for FPGA configuration data, improving processing efficiency by 40%.",
-      tech: ["C++", "Python", "FPGA"]
+      description: "Designed and implemented data parsing pipelines for FPGA configuration data and software tools, improving processing efficiency by 40% and enhancing development workflows.",
+      tech: ["C++", "Python", "FPGA", "Software Tools"]
     },
     {
       company: "Alpha AI Technology",
@@ -31,51 +39,40 @@ const ExperienceSection = () => {
   ];
 
   return (
-    <section id="experience" ref={ref} className="min-h-screen cloud-bg relative py-24">
-      {/* Wavy transition */}
-      <div className="wave-separator"></div>
-      
-      {/* Floating elements like the template */}
-      <div className="halftone-dolphin top-1/4 right-1/4 w-28 h-18 animate-swim">
-        🚀
-      </div>
-      <div className="halftone-dolphin bottom-1/3 left-1/4 w-24 h-16 animate-swim" style={{ animationDelay: '4s' }}>
-        💻
-      </div>
-
-      <div className="max-w-4xl mx-auto px-6 relative z-10">
+    <section id="experience" ref={ref} className="py-24 relative">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Wavy separator */}
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-neon to-transparent mb-20"></div>
+        
         <div className={`text-center mb-16 transition-all duration-1000 ${isIntersecting ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          <h2 className="text-4xl md:text-6xl font-bold mb-8 text-gray-800">
-            work experience
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-electric to-neon mx-auto mb-8"></div>
+          <h2 className="text-4xl md:text-6xl font-bold gradient-text mb-4">Experience</h2>
+          <p className="text-slate-400 text-lg max-w-2xl mx-auto">Building innovative solutions across multiple domains</p>
         </div>
 
-        <div className={`space-y-8 transition-all duration-1000 delay-300 ${isIntersecting ? 'animate-fade-in-up' : 'opacity-0'}`}>
+        <div className={`space-y-12 transition-all duration-1000 delay-300 ${isIntersecting ? 'animate-fade-in-up' : 'opacity-0'}`}>
           {experiences.map((exp, index) => (
-            <div key={index} className="bg-white/90 backdrop-blur-sm rounded-xl p-8 shadow-lg border-2 border-electric/20">
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="md:col-span-1">
-                  <h3 className="text-xl font-bold text-electric mb-2">{exp.company}</h3>
-                  <p className="font-semibold text-gray-700 mb-2">{exp.position}</p>
-                  <p className="text-gray-600 text-sm mb-4">{exp.duration}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {exp.tech.map((tech) => (
-                      <span key={tech} className="tech-tag text-xs">{tech}</span>
-                    ))}
+            <div key={index} className="relative">
+              <div className="browser-window p-8 transition-all duration-300 hover:scale-[1.02] project-card">
+                <div className="grid md:grid-cols-3 gap-8">
+                  <div className="md:col-span-1">
+                    <h3 className="text-2xl font-bold text-electric mb-2">{exp.company}</h3>
+                    <p className="font-semibold mb-2 text-neon">{exp.position}</p>
+                    <p className="text-slate-400 text-sm mb-4">{exp.duration}<br/>{exp.location}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {exp.tech.map((tech) => (
+                        <span key={tech} className="tech-tag">{tech}</span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-                <div className="md:col-span-2">
-                  <p className="text-gray-700 leading-relaxed">{exp.description}</p>
+                  <div className="md:col-span-2 space-y-4 text-slate-300">
+                    <p>{exp.description}</p>
+                  </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
-      
-      {/* Bottom wavy transition */}
-      <div className="wave-separator transform rotate-180 mt-16"></div>
     </section>
   );
 };
