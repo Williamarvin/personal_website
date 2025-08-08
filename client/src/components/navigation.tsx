@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 
 const Navigation = () => {
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState('Home');
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'experience', 'portfolio'];
+      const sections = ['Home', 'About', 'Experience', 'Portfolio'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
-        const element = document.getElementById(section);
+        const element = document.getElementById(section.toLowerCase());
         if (element) {
           const { offsetTop, offsetHeight } = element;
           if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
@@ -27,7 +27,7 @@ const Navigation = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
+    const element = document.getElementById(sectionId.toLowerCase());
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -37,7 +37,7 @@ const Navigation = () => {
     <>
       {/* Fixed Navigation Dots */}
       <nav className="fixed top-8 right-8 z-50 flex flex-col space-y-4">
-        {['home', 'about', 'experience', 'portfolio'].map((section) => (
+        {['Home', 'About', 'Experience', 'Portfolio'].map((section) => (
           <button
             key={section}
             onClick={() => scrollToSection(section)}
@@ -56,10 +56,10 @@ const Navigation = () => {
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="text-2xl font-bold gradient-text">WF</div>
           <div className="hidden md:flex space-x-8">
-            <button onClick={() => scrollToSection('about')} className="hover:text-electric transition-colors">about</button>
-            <button onClick={() => scrollToSection('experience')} className="hover:text-electric transition-colors">experience</button>
-            <button onClick={() => scrollToSection('portfolio')} className="hover:text-electric transition-colors">portfolio</button>
-            <a href="mailto:wafisilo@connect.ust.hk" className="hover:text-neon transition-colors">contact</a>
+            <button onClick={() => scrollToSection('About')} className="hover:text-electric transition-colors">About</button>
+            <button onClick={() => scrollToSection('Experience')} className="hover:text-electric transition-colors">Experience</button>
+            <button onClick={() => scrollToSection('Portfolio')} className="hover:text-electric transition-colors">Portfolio</button>
+            <a href="mailto:wafisilo@connect.ust.hk" className="hover:text-neon transition-colors">Contact</a>
           </div>
           <div className="flex space-x-4 text-lg">
             <a href="https://github.com/Williamarvin" target="_blank" rel="noopener noreferrer" className="hover:text-electric transition-colors">

@@ -1,5 +1,8 @@
 # Welcome to my personal website
-williamarvin.github.io/personal_website
+Deployed: williamarvin.github.io/personal_website
+
+npm run dev
+Local: http://localhost:5000/personal_website/
 
 ## System Architecture
 
