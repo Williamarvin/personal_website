@@ -35,7 +35,7 @@ const HeroSection = () => {
               codes
             </div>
             <p className="text-neon text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-              Software Engineer | AI/ML & Robotics
+              Software Engineer | Full-Stack Development & System Architecture
             </p>
             
             {/* Floating elements around the main content - styled like the template */}

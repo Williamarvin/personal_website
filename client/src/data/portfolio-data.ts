@@ -95,6 +95,15 @@ export const projects: Project[] = [
     category: "Autonomous Systems"
   },
   {
+    id: "fullstack-search-engine",
+    title: "Full-Stack Search Engine",
+    description: "A comprehensive full-stack search engine with Java backend and NGINX frontend. Features PageRank algorithm, Vector Space Model, and combined ranking system with Docker containerization.",
+    technologies: ["Java", "Spring Boot", "JavaScript", "HTML/CSS", "Docker", "JDBM", "REST API"],
+    githubUrl: "https://github.com/Williamarvin/Full-Stack-Search-Engine",
+    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200",
+    category: "Full-Stack Development"
+  },
+  {
     id: "tacor",
     title: "TacOR",
     description: "Software for tactile elevation and integration with hardware for assistive technology applications.",
@@ -111,15 +120,6 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Williamarvin/GENAI_NPC_scheduler",
     imageUrl: "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200",
     category: "AI & Gaming"
-  },
-  {
-    id: "excel-linkedlist",
-    title: "Excel with LinkedList",
-    description: "Using linkedlist OOP to replicate the features of an excel sheet with advanced data structure implementation.",
-    technologies: ["C++", "OOP", "Data Structures", "Linked Lists"],
-    githubUrl: "https://github.com/Williamarvin/Excel_with_linkedlist",
-    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200",
-    category: "Data Structures"
   },
   {
     id: "dungeon-oop",

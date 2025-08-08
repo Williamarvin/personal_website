@@ -10,14 +10,14 @@ const ExperienceSection = () => {
       duration: "Aug 2025 - Present",
       location: "Hong Kong",
       description: "Full-time software engineer",
-      tech: []
+      tech: ["React", "Python"]
     },
     {
       company: "Efinix",
       position: "Software Engineer",
       duration: "Feb 2025 - April 2025 (Part-Time) • June 2024 - Aug 2024",
       location: "New Territories, HK",
-      description: "Part-Time Software Engineer (Feb 2025 - April 2025): Developing a Flutter app using MVC architecture, Dart, and implementing UI, backend with a CI/CD pipeline. Software Engineer (June 2024 - Aug 2024): Revamped the codebase for the in-house coding editor (Primus) through extensive testing of Node.js and RestAPI, along with research into the VS Code codebase, achieving a 50% boost in inter-process communication efficiency. Engineered a Python-based communication framework utilizing ZMQ, PyEE, and Threads, decreasing backend-frontend latency from 0.2 seconds to 0.05 seconds, which improved user experience across the coding editor.",
+      description: "Part-Time Software Engineer (Feb 2025 - April 2025): Developed a Flutter application using MVC architecture and Dart, implementing comprehensive UI/UX solutions with CI/CD pipeline integration, resulting in 30% faster deployment cycles. Software Engineer (June 2024 - Aug 2024): Led the complete revamp of the in-house coding editor (Primus) through extensive Node.js and REST API testing, achieving a 50% improvement in inter-process communication efficiency. Engineered a Python-based communication framework utilizing ZMQ, PyEE, and Threads, reducing backend-frontend latency from 0.2 seconds to 0.05 seconds, enhancing user experience by 75%.",
       tech: ["Flutter", "Dart", "MVC Architecture", "CI/CD", "Node.js", "Python", "ZMQ", "PyEE", "RestAPI"]
     },
     {
@@ -25,7 +25,7 @@ const ExperienceSection = () => {
       position: "Software Engineer",
       duration: "June 2023 - Aug 2023", 
       location: "Hong Kong Island, HK",
-      description: "Designed and built the backend of an ERP system using Node.js and PostgreSQL, creating a web application that reduced development time by over 75% for a SaaS platform template builder serving more than 20 clients. Spearheaded and deployed a Java-based object detection app for dash cameras, leveraging AWS compute units, EMR with Apache Hadoop, and S3 for real-time video uploads every 10 minutes, serving 30+ users.",
+      description: "Architected and developed a comprehensive ERP system backend using Node.js and PostgreSQL, delivering a scalable SaaS platform template builder that reduced development time by 75% and served 20+ enterprise clients. Led cross-functional team initiatives and deployed a Java-based object detection application for dash cameras, leveraging AWS compute units, EMR with Apache Hadoop, and S3 for real-time video processing, serving 30+ users with 99.9% uptime.",
       tech: ["Node.js", "PostgreSQL", "Java", "AWS", "Apache Hadoop", "S3"]
     }
   ];

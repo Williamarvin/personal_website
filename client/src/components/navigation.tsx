@@ -68,9 +68,6 @@ const Navigation = () => {
             <a href="https://linkedin.com/in/WilliamArvinFisilo" target="_blank" rel="noopener noreferrer" className="hover:text-electric transition-colors">
               <i className="fab fa-linkedin"></i>
             </a>
-            <a href="mailto:wafisilo@connect.ust.hk" className="hover:text-neon transition-colors">
-              <i className="fas fa-envelope"></i>
-            </a>
           </div>
         </div>
       </header>
