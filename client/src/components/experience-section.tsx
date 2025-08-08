@@ -38,7 +38,9 @@ const ExperienceSection = () => {
         
         <div className={`text-center mb-16 transition-all duration-1000 ${isIntersecting ? 'animate-fade-in-up' : 'opacity-0'}`}>
           <h2 className="text-4xl md:text-6xl font-bold gradient-text mb-4">Experience</h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">Building innovative solutions across multiple domains</p>
+          <div className="w-24 h-1 bg-gradient-to-r from-electric to-neon mx-auto mb-8"></div>
+
+          {/* <p className="text-slate-400 text-lg max-w-2xl mx-auto">Building innovative solutions across multiple domains</p> */}
         </div>
 
         <div className={`space-y-12 transition-all duration-1000 delay-300 ${isIntersecting ? 'animate-fade-in-up' : 'opacity-0'}`}>
