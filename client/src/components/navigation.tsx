@@ -5,7 +5,7 @@ const Navigation = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['Home', 'About', 'Experience', 'Portfolio'];
+      const sections = ['Home', 'About', 'Experience', 'Projects'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -37,7 +37,7 @@ const Navigation = () => {
     <>
       {/* Fixed Navigation Dots */}
       <nav className="fixed top-8 right-8 z-50 flex flex-col space-y-4">
-        {['Home', 'About', 'Experience', 'Portfolio'].map((section) => (
+        {['Home', 'About', 'Experience', 'Projects'].map((section) => (
           <button
             key={section}
             onClick={() => scrollToSection(section)}
@@ -58,7 +58,7 @@ const Navigation = () => {
           <div className="hidden md:flex space-x-8">
             <button onClick={() => scrollToSection('About')} className="hover:text-electric transition-colors">About</button>
             <button onClick={() => scrollToSection('Experience')} className="hover:text-electric transition-colors">Experience</button>
-            <button onClick={() => scrollToSection('Portfolio')} className="hover:text-electric transition-colors">Portfolio</button>
+            <button onClick={() => scrollToSection('Projects')} className="hover:text-electric transition-colors">Projects</button>
             <a href="mailto:wafisilo@connect.ust.hk" className="hover:text-neon transition-colors">Contact</a>
           </div>
           <div className="flex space-x-4 text-lg">
